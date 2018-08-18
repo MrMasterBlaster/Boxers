@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>E:/Архив/МоиПрограммы/TestUnit/Boxers/Boxers/Content/b11.png</File>
+    <File>E:/Архив/МоиПрограммы/TestUnit/Boxers/Boxers/Content/b12.png</File>
+    <File>E:/Архив/МоиПрограммы/TestUnit/Boxers/Boxers/Content/b13.png</File>
+    <File>E:/Архив/МоиПрограммы/TestUnit/Boxers/Boxers/Content/b21.png</File>
+    <File>E:/Архив/МоиПрограммы/TestUnit/Boxers/Boxers/Content/b22.png</File>
+    <File>E:/Архив/МоиПрограммы/TestUnit/Boxers/Boxers/Content/b23.png</File>
+    <File>E:/Архив/МоиПрограммы/TestUnit/Boxers/Boxers/Content/hp.png</File>
+  </SourceFiles>
+</SourceFileCollection>
