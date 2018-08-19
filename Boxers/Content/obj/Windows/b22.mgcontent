@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>E:/Архив/МоиПрограммы/TestUnit/Boxers/Boxers/Content/b22.png</SourceFile>
+  <SourceFile>E:/Архив/МоиПрограммы/Boxers/Boxers/Boxers/Content/b22.png</SourceFile>
   <SourceTime>2018-08-18T21:02:59.355+05:00</SourceTime>
-  <DestFile>E:/Архив/МоиПрограммы/TestUnit/Boxers/Boxers/Content/bin/Windows/b22.xnb</DestFile>
-  <DestTime>2018-08-18T21:05:24.276+05:00</DestTime>
+  <DestFile>E:/Архив/МоиПрограммы/Boxers/Boxers/Boxers/Content/bin/Windows/b22.xnb</DestFile>
+  <DestTime>2018-08-19T12:14:36.47+05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T20:05:36+05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

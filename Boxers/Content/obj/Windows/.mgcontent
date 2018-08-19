@@ -4,12 +4,12 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>E:/Архив/МоиПрограммы/TestUnit/Boxers/Boxers/Content/b11.png</File>
-    <File>E:/Архив/МоиПрограммы/TestUnit/Boxers/Boxers/Content/b12.png</File>
-    <File>E:/Архив/МоиПрограммы/TestUnit/Boxers/Boxers/Content/b13.png</File>
-    <File>E:/Архив/МоиПрограммы/TestUnit/Boxers/Boxers/Content/b21.png</File>
-    <File>E:/Архив/МоиПрограммы/TestUnit/Boxers/Boxers/Content/b22.png</File>
-    <File>E:/Архив/МоиПрограммы/TestUnit/Boxers/Boxers/Content/b23.png</File>
-    <File>E:/Архив/МоиПрограммы/TestUnit/Boxers/Boxers/Content/hp.png</File>
+    <File>E:/Архив/МоиПрограммы/Boxers/Boxers/Boxers/Content/b11.png</File>
+    <File>E:/Архив/МоиПрограммы/Boxers/Boxers/Boxers/Content/b12.png</File>
+    <File>E:/Архив/МоиПрограммы/Boxers/Boxers/Boxers/Content/b13.png</File>
+    <File>E:/Архив/МоиПрограммы/Boxers/Boxers/Boxers/Content/b21.png</File>
+    <File>E:/Архив/МоиПрограммы/Boxers/Boxers/Boxers/Content/b22.png</File>
+    <File>E:/Архив/МоиПрограммы/Boxers/Boxers/Boxers/Content/b23.png</File>
+    <File>E:/Архив/МоиПрограммы/Boxers/Boxers/Boxers/Content/hp.png</File>
   </SourceFiles>
 </SourceFileCollection>

@@ -43,7 +43,7 @@ namespace Boxers
             switch (enemy.bs.BS)
             {
                 case BoxerStates.Hit:
-                    ai.controlValue.weigth += 1;
+                    ai.controlValue.weigth += 0;
                     points += 1;
                     break;
                 case BoxerStates.Block:

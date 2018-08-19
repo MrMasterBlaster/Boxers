@@ -15,7 +15,7 @@ namespace Boxers
         Array states;
         List<boxerAction> actions;
         public Condition controlValue;
-
+        Random r;
 
         public AI(Boxer _owner)
         {
@@ -28,6 +28,7 @@ namespace Boxers
             actions.Add(new boxerAction(owner.Hit));
             actions.Add(new boxerAction(owner.Block));
             actions.Add(new boxerAction(owner.Wait));
+            r = new Random();
         }
 
         public void SelectEnemy(Boxer _enemy)
@@ -38,19 +39,46 @@ namespace Boxers
         public void DoAction()
         {
             boxerAction ba = null;
-            foreach (var cond in conditions)
+            if (r.Next(100) < 90)
             {
-                ba = cond.GetAction(enemy.bs.BS);
-                controlValue = cond;
-            }
-            if (ba == null)
-            {
-                CreateNewCondition();
-                controlValue = null;
+                foreach (var cond in conditions)
+                {
+                    ba = cond.GetAction(enemy.bs.BS);
+                    controlValue = cond;
+                }
+                if (ba == null)
+                {
+                    CreateNewCondition();
+                    controlValue = null;
+                }
+                else
+                {
+                    ba.Invoke();
+                }
             }
             else
             {
-                ba.Invoke();
+                CreateNewCondition();
+                SortConditions();
+            }
+        }
+
+
+        public void SortConditions()
+        {
+            List<Condition> newConditions = new List<Condition>();
+            Condition minWeidthCond;
+            for (int i = 0; i < conditions.Count; i++)
+            {
+                for (int j = 0; j < conditions.Count - 1; j++)
+                {
+                    if (conditions[j].weigth > conditions[j + 1].weigth)
+                    {
+                        minWeidthCond = conditions[j + 1];
+                        conditions[j] = conditions[j + 1];
+                        conditions[j + 1] = minWeidthCond;
+                    }
+                }
             }
         }
 
@@ -66,14 +94,18 @@ namespace Boxers
 
 
             //while (conditions.IndexOf(cond) != -1)
-            
-            while (IsExistCondition(cond))
+            int k = 0;
+            while (IsExistCondition(cond) && k < 1000)
             {
+                k++;
                 random = new Random(random1.Next());
                 random1 = new Random(random.Next());
                 cond = new Condition((BoxerStates)states.GetValue(random.Next(states.Length)), actions.ElementAt(random1.Next(actions.Count)));
             }
-            conditions.Add(cond);
+            if (k < 1000)
+            {
+                conditions.Add(cond);
+            }
         }
         
         bool IsExistCondition(Condition cond)
