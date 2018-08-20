@@ -28,8 +28,6 @@ E:\Архив\МоиПрограммы\TestUnit\Boxers\Boxers\obj\x86\Debug\Boxe
 E:\Архив\МоиПрограммы\TestUnit\Boxers\Boxers\obj\x86\Debug\Boxers.exe
 E:\Архив\МоиПрограммы\TestUnit\Boxers\Boxers\obj\x86\Debug\Boxers.pdb
 E:\Архив\МоиПрограммы\TestUnit\Boxers\Boxers\bin\Windows\x86\Debug\Content\hp.xnb
-E:\Архив\МоиПрограммы\Boxers\Boxers\Boxers\obj\x86\Debug\Boxers.exe
-E:\Архив\МоиПрограммы\Boxers\Boxers\Boxers\obj\x86\Debug\Boxers.pdb
 E:\Архив\МоиПрограммы\Boxers\Boxers\Boxers\bin\Windows\x86\Debug\Content\b11.xnb
 E:\Архив\МоиПрограммы\Boxers\Boxers\Boxers\bin\Windows\x86\Debug\Content\b12.xnb
 E:\Архив\МоиПрограммы\Boxers\Boxers\Boxers\bin\Windows\x86\Debug\Content\b13.xnb
@@ -37,6 +35,7 @@ E:\Архив\МоиПрограммы\Boxers\Boxers\Boxers\bin\Windows\x86\Debu
 E:\Архив\МоиПрограммы\Boxers\Boxers\Boxers\bin\Windows\x86\Debug\Content\b22.xnb
 E:\Архив\МоиПрограммы\Boxers\Boxers\Boxers\bin\Windows\x86\Debug\Content\b23.xnb
 E:\Архив\МоиПрограммы\Boxers\Boxers\Boxers\bin\Windows\x86\Debug\Content\hp.xnb
+E:\Архив\МоиПрограммы\Boxers\Boxers\Boxers\bin\Windows\x86\Debug\Content\mytext1.xnb
 E:\Архив\МоиПрограммы\Boxers\Boxers\Boxers\bin\Windows\x86\Debug\Boxers.exe
 E:\Архив\МоиПрограммы\Boxers\Boxers\Boxers\bin\Windows\x86\Debug\Boxers.pdb
 E:\Архив\МоиПрограммы\Boxers\Boxers\Boxers\bin\Windows\x86\Debug\MonoGame.Framework.dll
@@ -57,4 +56,6 @@ E:\Архив\МоиПрограммы\Boxers\Boxers\Boxers\bin\Windows\x86\Debu
 E:\Архив\МоиПрограммы\Boxers\Boxers\Boxers\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
 E:\Архив\МоиПрограммы\Boxers\Boxers\Boxers\bin\Windows\x86\Debug\SharpDX.XInput.xml
 E:\Архив\МоиПрограммы\Boxers\Boxers\Boxers\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+E:\Архив\МоиПрограммы\Boxers\Boxers\Boxers\obj\x86\Debug\Boxers.exe
+E:\Архив\МоиПрограммы\Boxers\Boxers\Boxers\obj\x86\Debug\Boxers.pdb
 E:\Архив\МоиПрограммы\Boxers\Boxers\Boxers\obj\x86\Debug\Boxers.csprojResolveAssemblyReference.cache

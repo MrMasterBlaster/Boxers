@@ -17,6 +17,8 @@ namespace Boxers
         public Condition controlValue;
         Random r;
 
+        public List<Condition> GetConditions { get { return conditions; } }
+
         public AI(Boxer _owner)
         {
             owner = _owner;
@@ -38,6 +40,7 @@ namespace Boxers
 
         public void DoAction()
         {
+            controlValue = new Condition();
             boxerAction ba = null;
             if (r.Next(100) < 90)
             {
@@ -49,21 +52,23 @@ namespace Boxers
                 if (ba == null)
                 {
                     CreateNewCondition();
-                    controlValue = null;
+                    ba = conditions[conditions.Count - 1].GetAction(enemy.bs.BS);
+                    controlValue = conditions[conditions.Count - 1];
                 }
-                else
-                {
-                    ba.Invoke();
-                }
+                ba.Invoke();
             }
             else
             {
                 CreateNewCondition();
+                ba = conditions[conditions.Count - 1].GetAction(enemy.bs.BS);
+                ba.Invoke();
+                controlValue = conditions[conditions.Count - 1];
                 SortConditions();
             }
         }
 
 
+        
         public void SortConditions()
         {
             List<Condition> newConditions = new List<Condition>();
@@ -85,24 +90,27 @@ namespace Boxers
         public void CreateNewCondition()
         {
             Random random = new Random();
-            Random random1 = new Random(random.Next());
-            Condition cond = new Condition((BoxerStates)states.GetValue(random.Next(states.Length)), actions.ElementAt(random1.Next(actions.Count)));
+            //Random random1 = new Random(random.Next());
+            //Condition cond = new Condition((BoxerStates)states.GetValue(random.Next(states.Length)), actions.ElementAt(random1.Next(actions.Count)));
+            Condition cond = new Condition(enemy.bs.BS, actions.ElementAt(random.Next(actions.Count)));
+            
+            int k = 0;
+
             if (conditions.Count == 0)
             {
                 conditions.Add(cond);
             }
-
-
+            else
             //while (conditions.IndexOf(cond) != -1)
-            int k = 0;
-            while (IsExistCondition(cond) && k < 1000)
+            while (IsExistCondition(cond) && k < 100)
             {
                 k++;
-                random = new Random(random1.Next());
-                random1 = new Random(random.Next());
-                cond = new Condition((BoxerStates)states.GetValue(random.Next(states.Length)), actions.ElementAt(random1.Next(actions.Count)));
+                //random = new Random(random1.Next());
+                //random1 = new Random(random.Next());
+                //cond = new Condition((BoxerStates)states.GetValue(random.Next(states.Length)), actions.ElementAt(random1.Next(actions.Count)));
+                cond = new Condition(enemy.bs.BS, actions.ElementAt(random.Next(actions.Count)));
             }
-            if (k < 1000)
+            if (!IsExistCondition(cond))
             {
                 conditions.Add(cond);
             }
@@ -112,7 +120,7 @@ namespace Boxers
         {
             foreach (var c in conditions)
             {
-                if (cond.ba == c.ba && cond.bs == c.bs)
+                if (cond.GetStringCouse() == c.GetStringCouse() && cond.GetStringResult() == c.GetStringResult())
                 {
                     return true;
                 }

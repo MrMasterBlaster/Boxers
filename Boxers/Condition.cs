@@ -18,6 +18,10 @@ namespace Boxers
             bs = _bs;
             ba = _ba;
         }
+        public Condition()
+        {
+
+        }
 
         public bool GetAnswer(BoxerStates _bs)
         {
@@ -35,6 +39,35 @@ namespace Boxers
                 return ba;
             }
             return null;
+        }
+
+        public string GetStringCouse()
+        {
+            switch (bs)
+            {
+                case BoxerStates.Hit:
+                    return "hit";
+                case BoxerStates.Block:
+                    return "block";
+                case BoxerStates.Wait:
+                    return "wait";
+                default:
+                    return "";
+            }
+        }
+        public string GetStringResult()
+        {
+            switch (ba.Method.Name)
+            {
+                case "Hit":
+                    return "hit";
+                case "Block":
+                    return "block";
+                case "Wait":
+                    return "wait";
+                default:
+                    return "";
+            }
         }
     }
 }

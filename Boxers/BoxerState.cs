@@ -15,6 +15,7 @@ namespace Boxers
         public Texture2D blockTexture;
         public Texture2D waitTexture;
 
+
         BoxerStates bs = new BoxerStates();
         int idleTime = 0;
         public int blockSize = 0;

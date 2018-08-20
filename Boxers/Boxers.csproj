@@ -41,6 +41,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ActionHistory.cs" />
     <Compile Include="AI.cs" />
     <Compile Include="Boxer.cs" />
     <Compile Include="BoxerActions.cs" />
