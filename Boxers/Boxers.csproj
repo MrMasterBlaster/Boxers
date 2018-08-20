@@ -48,6 +48,7 @@
     <Compile Include="BoxerState.cs" />
     <Compile Include="BoxerStates.cs" />
     <Compile Include="Condition.cs" />
+    <Compile Include="ConditionCompare.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

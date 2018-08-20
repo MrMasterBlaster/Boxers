@@ -48,43 +48,71 @@ namespace Boxers
                 {
                     ba = cond.GetAction(enemy.bs.BS);
                     controlValue = cond;
+                    if (ba != null)
+                    {
+                        ba.Invoke();
+                        return;
+                    }
                 }
                 if (ba == null)
                 {
                     CreateNewCondition();
                     ba = conditions[conditions.Count - 1].GetAction(enemy.bs.BS);
                     controlValue = conditions[conditions.Count - 1];
+                    ba.Invoke();
+                    return;
                 }
-                ba.Invoke();
             }
             else
             {
+
                 CreateNewCondition();
-                ba = conditions[conditions.Count - 1].GetAction(enemy.bs.BS);
-                ba.Invoke();
-                controlValue = conditions[conditions.Count - 1];
                 SortConditions();
+
+
+                foreach (var cond in conditions)
+                {
+                    ba = cond.GetAction(enemy.bs.BS);
+                    controlValue = cond;
+                    if (ba != null)
+                    {
+                        ba.Invoke();
+                        return;
+                    }
+                }
+                if (ba == null)
+                {
+                    CreateNewCondition();
+                    ba = conditions[conditions.Count - 1].GetAction(enemy.bs.BS);
+                    controlValue = conditions[conditions.Count - 1];
+                    ba.Invoke();
+                    return;
+                }
             }
         }
+
+        
 
 
         
         public void SortConditions()
         {
-            List<Condition> newConditions = new List<Condition>();
-            Condition minWeidthCond;
-            for (int i = 0; i < conditions.Count; i++)
-            {
-                for (int j = 0; j < conditions.Count - 1; j++)
-                {
-                    if (conditions[j].weigth > conditions[j + 1].weigth)
-                    {
-                        minWeidthCond = conditions[j + 1];
-                        conditions[j] = conditions[j + 1];
-                        conditions[j + 1] = minWeidthCond;
-                    }
-                }
-            }
+            //List<Condition> newConditions = new List<Condition>();
+            //Condition maxWeidthCond;
+            //maxWeidthCond = conditions[0];
+            //for (int i = 0; i < conditions.Count; i++)
+            //{
+            //    for (int j = 0; j < conditions.Count; j++)
+            //    {
+            //        if (maxWeidthCond.weigth < conditions[j].weigth)
+            //        {
+                        
+            //        }
+            //    }
+            //}
+
+
+            conditions.Sort(new ConditionCompare());
         }
 
         public void CreateNewCondition()

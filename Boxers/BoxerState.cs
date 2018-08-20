@@ -24,6 +24,7 @@ namespace Boxers
             set
             {
                 blockSize = 0;
+                bs = value;
                 switch (value)
                 {
                     case BoxerStates.Hit:
