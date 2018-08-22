@@ -10,7 +10,8 @@ namespace Boxers
 {
     class Boxer
     {
-        public int hp;
+        public BoxerStats boxerStats;
+        public EffectsPool EffectsPool;
         public int points;
 
         Rectangle icon;
@@ -25,36 +26,38 @@ namespace Boxers
         AI ai;
 
         Boxer enemy;
-        public int HitHimAt {set { hp = hp - (value - bs.blockSize); } }
+        
         public Boxer SetEnemy { set { enemy = value; ai.SelectEnemy(value); } }
 
         public AI GetAi { get { return ai; } }
 
-        public Boxer(Rectangle _icon, SpriteFont _textBlock)
+        public Boxer(Rectangle _icon, SpriteFont _textBlock, BoxerStats _boxerStats)
         {
             icon = _icon;
             pointsTextPos = new Vector2(icon.X + 120, icon.Y);
-            hp = 300;
+            boxerStats = _boxerStats;
             points = 0;
             ai = new AI(this);
-            hpPos = new Rectangle(icon.X, icon.Y + 120, hp, 30);
+            hpPos = new Rectangle(icon.X, icon.Y + 120, boxerStats.HP, 30);
             bs.BS = BoxerStates.Block;
             textBlock = _textBlock;
             ah = new ActionHistory(textBlock, hpPos);
+            EffectsPool = new EffectsPool();
         }
 
 
-        public Boxer(Rectangle _icon, SpriteFont _textBlock, AI _ai)
+        public Boxer(Rectangle _icon, SpriteFont _textBlock, AI _ai, BoxerStats _boxerStats)
         {
             icon = _icon;
             pointsTextPos = new Vector2(icon.X + 120, icon.Y);
-            hp = 300;
+            boxerStats = _boxerStats;
             points = 0;
             ai = _ai;
-            hpPos = new Rectangle(icon.X, icon.Y + 120, hp, 30);
+            hpPos = new Rectangle(icon.X, icon.Y + 120, boxerStats.HP, 30);
             bs.BS = BoxerStates.Block;
             textBlock = _textBlock;
             ah = new ActionHistory(textBlock, hpPos);
+            EffectsPool = new EffectsPool();
         }
 
 
@@ -62,8 +65,8 @@ namespace Boxers
         {
             ah.AddRecord("I hit ");
             bs.BS = BoxerStates.Hit;
-            enemy.HitHimAt = 10;
-
+            EffectsPool.AddEffect(new OwnerHitEffect(enemy, boxerStats, 50 - boxerStats.Speed / 2, 100 - boxerStats.Speed));
+            
             switch (enemy.bs.BS)
             {
                 case BoxerStates.Hit:
@@ -87,6 +90,7 @@ namespace Boxers
         {
             ah.AddRecord("I block ");
             bs.BS = BoxerStates.Block;
+            EffectsPool.AddEffect(new OwnerBlockEffect(boxerStats, 80 - boxerStats.Speed));
 
             switch (enemy.bs.BS)
             {
@@ -111,16 +115,16 @@ namespace Boxers
         {
             ah.AddRecord("I wait ");
             bs.BS = BoxerStates.Wait;
-            hp += 5;
+            EffectsPool.AddEffect(new OwnerWaitEffect(boxerStats, 80 - boxerStats.Speed, 1, this));
 
             switch (enemy.bs.BS)
             {
                 case BoxerStates.Hit:
-                    ai.controlValue.weigth -= 1;
+                    ai.controlValue.weigth -= 2;
                     points += 0;
                     break;
                 case BoxerStates.Block:
-                    ai.controlValue.weigth += 1;
+                    ai.controlValue.weigth += 2;
                     points += 0;
                     break;
                 case BoxerStates.Wait:
@@ -135,7 +139,7 @@ namespace Boxers
 
         public void Update()
         {
-            if (bs.GetIdleTime() <= 0)
+            if (boxerStats.Stunning <= 0)
             {
                 ah.NewAct();
                 ai.DoAction();
@@ -145,8 +149,9 @@ namespace Boxers
                     ah.AddRecord(". I got " + points + " points.");
                 }
             }
-            bs.Update();
-            hpPos.Width = hp;
+            EffectsPool.Update();
+            hpPos.Width = boxerStats.HP;
+
         }
 
         private void DrawConditionsInfo(SpriteBatch spriteBatch)

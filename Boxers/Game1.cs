@@ -10,6 +10,7 @@ namespace Boxers
     /// </summary>
     public class Game1 : Game
     {
+        BoxerStatsFactory bsf = new BoxerStatsFactory();
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
@@ -44,8 +45,8 @@ namespace Boxers
             
 
 
-            boxer1 = new Boxer(new Rectangle(10,10, 100, 100), textBlock);
-            boxer2 = new Boxer(new Rectangle(350, 10, 100, 100), textBlock);
+            boxer1 = new Boxer(new Rectangle(10,10, 100, 100), textBlock, bsf.GetStandart());
+            boxer2 = new Boxer(new Rectangle(350, 10, 100, 100), textBlock, bsf.GetStandart());
 
             boxer1.SetEnemy = boxer2;
             boxer2.SetEnemy = boxer1;
@@ -103,13 +104,13 @@ namespace Boxers
 
             
 
-            if ((boxer1.hp <= 0) || (boxer2.hp <= 0))
+            if ((boxer1.boxerStats.HP <= 0) || (boxer2.boxerStats.HP <= 0))
             {
                 //Exit();
                 roundCount++;
 
-                boxer1.hp = 300;
-                boxer2.hp = 300;
+                boxer1.boxerStats.HP = boxer1.boxerStats.MaxHP;
+                boxer2.boxerStats.HP = boxer1.boxerStats.MaxHP;
             }
             // TODO: Add your update logic here
 

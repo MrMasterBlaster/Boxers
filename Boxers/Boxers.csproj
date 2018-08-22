@@ -45,11 +45,22 @@
     <Compile Include="AI.cs" />
     <Compile Include="Boxer.cs" />
     <Compile Include="BoxerActions.cs" />
+    <Compile Include="BoxerCharcs.cs" />
     <Compile Include="BoxerState.cs" />
     <Compile Include="BoxerStates.cs" />
+    <Compile Include="BoxerStats.cs" />
+    <Compile Include="BoxerStatsFactory.cs" />
     <Compile Include="Condition.cs" />
     <Compile Include="ConditionCompare.cs" />
+    <Compile Include="Effect.cs" />
+    <Compile Include="EffectsPool.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="DamageEffect.cs" />
+    <Compile Include="HealEffect.cs" />
+    <Compile Include="IEffect.cs" />
+    <Compile Include="OwnerBlockEffect.cs" />
+    <Compile Include="OwnerHitEffect.cs" />
+    <Compile Include="OwnerWaitEffect.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

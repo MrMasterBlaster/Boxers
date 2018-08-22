@@ -17,27 +17,26 @@ namespace Boxers
 
 
         BoxerStates bs = new BoxerStates();
-        int idleTime = 0;
-        public int blockSize = 0;
+        //int idleTime = 0;
+        //public int blockSize = 0;
 
         public BoxerStates BS { get { return bs; }
             set
             {
-                blockSize = 0;
                 bs = value;
                 switch (value)
                 {
                     case BoxerStates.Hit:
-                        idleTime = 50;
+                        //idleTime = 50;
                         texture = hitTexture;
                         break;
                     case BoxerStates.Block:
-                        idleTime = 30;
-                        blockSize = 5;
+                        //idleTime = 30;
+                        //blockSize = 5;
                         texture = blockTexture;
                         break;
                     case BoxerStates.Wait:
-                        idleTime = 40;
+                        //idleTime = 30;
                         texture = waitTexture;
                         break;
                     default:
@@ -46,14 +45,14 @@ namespace Boxers
             }
         }
 
-        public int GetIdleTime()
-        {
-            return idleTime;
-        }
+        //public int GetIdleTime()
+        //{
+        //    return idleTime;
+        //}
 
-        public void Update()
-        {
-            idleTime--;
-        }
+        //public void Update()
+        //{
+        //    idleTime--;
+        //}
     }
 }
